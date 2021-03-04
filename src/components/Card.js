@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Card extends Component {
-    state = {
-        characters: []
-    }
-
-    render() {
-        return(
-            <div className="card">
-                
+const Card = ({ name, image, status, specie, gender, origin }) => {
+    return(
+        <div className="card">
+            <div className="card-header">
+                <div className="status" style={{ backgroundColor: status === "Alive" ? "#0f0" : "#f00"}} />
+                <img src={image} alt={name} />
             </div>
-        );
-    }
+            <div className="card-body">
+                <h2>{name}</h2>
+                <p>Specie: {specie}</p>
+                <p>Gender: {gender}</p>
+            </div>
+        </div>
+    );
 }
+
+export default Card;
