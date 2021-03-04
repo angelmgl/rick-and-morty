@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap');
+
+:root {
+    --primary-color: #e00;
+    font-family: 'Gaegu', cursive;
+}
+
+header {
+    width: 100%;
+    height: 56px;
+    margin: 0;
+    background-color: var(--primary-color);
+    box-sizing: border-box;
+}
+
+header ul {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul span {
+    display: inline-block;
+    font-size: 32px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+header ul li {
+    display: inline-block;
+}
+
+.bars {
+    display: none;
+}
+
+nav {
+    width: auto;
+    height: 100%;
+} 
+
+nav .link {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 32px;
+}
+
+nav .link:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+nav .close {
+    display: none;
+}
+
+/* estilos del componente Card */
+
+.container {
+    display: grid;
+    width: 100%;
+    margin: 20px auto;
+    max-width: 920px;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 20px 5px;
+}
+
+.container .loadMore {
+    font-size: 2em;
+    padding: 10px 25px;
+    border: none;
+    background-color: #f00;
+    align-self: end;
+}
+
+.card {
+    width: 300px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card-header {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+}
+
+.status {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.card-header img {
+    width: auto;
+    height: 100%;
+}
+
+.card-body {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.card-body p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* loaders */
+
+.lds-grid {
+    display: inline-block;
+    position: relative;
+    grid-column-start: 2;
+    align-self: center;
+    width: 80px;
+    height: 80px;
+}
+.lds-grid div {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #f00;
+    animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+    top: 8px;
+    left: 8px;
+    animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+    top: 8px;
+    left: 32px;
+    animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+    top: 8px;
+    left: 56px;
+    animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+    top: 32px;
+    left: 8px;
+    animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+    top: 32px;
+    left: 32px;
+    animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+    top: 32px;
+    left: 56px;
+    animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+    top: 56px;
+    left: 8px;
+    animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+    top: 56px;
+    left: 32px;
+    animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+    top: 56px;
+    left: 56px;
+    animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    header ul {
+        justify-content: center;
+    }
+
+    .bars {
+        display: block;
+        position: sticky;
+        bottom: 5%;
+        left: 80%;
+        font-size: 2em;
+        padding: 15px;
+        border-radius: 50%;
+        background-color: #f00;
+        transition: all 1s;
+    }
+
+    .bars:hover {
+        background-color: #ff0;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .75);
+        z-index: 999;
+    }
+
+    nav .close {
+        display: block;
+        position: absolute;
+        bottom: 5%;
+        left: 80%;
+        font-size: 2em;
+        padding: 15px;
+        border-radius: 50%;
+        background-color: #f00;
+    }
+
+    .lds-grid {
+        grid-column-start: 1;
+    }
+}
