@@ -1,18 +1,26 @@
-import React from 'react';
-import { FaTimes } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaTimes, FaBars } from 'react-icons/fa';
 
-const Nav = ({ nav, setNav }) => {
+const Nav = () => {
+    const [ nav, setNav ] = useState(false);
+
     return(
-        <nav id="nav" style={{ display: nav ? "flex" : "none" }}>
-            <a className="link" 
-                href="https://github.com/angelmgl/rick-and-morty.git" 
-                target="_blank" rel="noreferrer">Like</a>
-
-            <a className="link" 
-                href="https://twitter.com/angelmgljpr/" 
-                target="_blank" rel="noreferrer">See more</a>
-
-            <FaTimes className="close" onClick={setNav} />
+        <nav>
+            <div className="hamburger" onClick={() => setNav(!nav)}>
+                {
+                    nav ? <FaTimes /> : <FaBars />
+                }
+            </div>
+            <ul className={`nav-links ${nav ? 'active' : ''}`} >
+            
+                <li className={`${nav ? 'open' : ''}`}>
+                    <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer">Github</a>
+                </li>
+                <li className={`${nav ? 'open' : ''}`}>
+                    <a href="https://twitter.com/angelmgljpr/" target="_blank" rel="noreferrer">See more</a>
+                </li>
+            
+            </ul>
         </nav>
     )
 }

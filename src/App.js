@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { getCharacter } from 'rickmortyapi';
-import { FaBars } from 'react-icons/fa';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import Header from "./components/Header";
-import Nav from './components/Nav';
+import Header from './components/Header';
 import Card from './components/Card';
 import Loader from './components/Loader';
 
@@ -15,8 +13,7 @@ export default class App extends Component {
     state = {
         characters: [],
         loading: true,
-        page: 1,
-        isNavOpen: true
+        page: 1
     }
 
     fetchCharacters = async (page) => {
@@ -33,10 +30,6 @@ export default class App extends Component {
         }
     }
 
-    openNav = () => {
-        this.setState({ isNavOpen: !this.state.isNavOpen })
-    }
-
     componentDidMount() {
         this.fetchCharacters(this.state.page);
     }
@@ -45,7 +38,6 @@ export default class App extends Component {
         return(
             <>
                 <Header />
-                <Nav nav={this.state.isNavOpen} setNav={this.openNav} />
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
@@ -65,7 +57,7 @@ export default class App extends Component {
                     </section>
                 } 
                 </InfiniteScroll>
-                <FaBars className="bars" onClick={this.openNav} /></>
+            </>
         );
     }
 };
