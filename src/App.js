@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { getCharacter } from 'rickmortyapi';
 import { FaBars } from 'react-icons/fa';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Header from "./components/Header";
 import Card from './components/Card';
 import Loader from './components/Loader';
+
+import './style.css';
+import './normalize.css';
 
 export default class App extends Component {
     state = {
@@ -35,10 +39,14 @@ export default class App extends Component {
         return(
             <>
                 <Header />
-                <section className="container">
-                    {
-                        this.state.characters.length > 0 ?
-                        (this.state.characters.map(char => {
+                <InfiniteScroll
+                    dataLength={this.state.characters.length}
+                    next={() => this.fetchCharacters(this.state.page)}
+                    hasMore={true} 
+                    loader={<Loader />} >
+                {
+                    <section className="container">
+                        { this.state.characters.map(char => {
                             return <Card 
                                 key={char.id}
                                 name={char.name}
@@ -46,16 +54,10 @@ export default class App extends Component {
                                 status={char.status}
                                 specie={char.species}
                                 gender={char.gender} />
-                        })) : <Loader />
-                    }
-                    {
-                        this.state.loading ? "" :
-                        (<button className="loadMore" 
-                        onClick={() => this.fetchCharacters(this.state.page)}>
-                        Load more...
-                        </button>)
-                    }  
-                </section>
+                        })}
+                    </section>
+                } 
+                </InfiniteScroll>
                 <FaBars className="bars" /></>
         );
     }
