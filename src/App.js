@@ -14,7 +14,8 @@ export default class App extends Component {
     state = {
         characters: [],
         loading: true,
-        page: 1
+        page: 1,
+        navOpen: true
     }
 
     fetchCharacters = async (page) => {
@@ -31,6 +32,10 @@ export default class App extends Component {
         }
     }
 
+    openNav = () => {
+        this.setState({ navOpen: !this.state.navOpen })
+    }
+
     componentDidMount() {
         this.fetchCharacters(this.state.page);
     }
@@ -38,7 +43,7 @@ export default class App extends Component {
     render() {
         return(
             <>
-                <Header />
+                <Header nav={this.state.navOpen} setNav={this.openNav} />
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
@@ -58,7 +63,7 @@ export default class App extends Component {
                     </section>
                 } 
                 </InfiniteScroll>
-                <FaBars className="bars" /></>
+                <FaBars className="bars" onClick={this.openNav} /></>
         );
     }
 };

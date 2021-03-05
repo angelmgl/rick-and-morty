@@ -21,13 +21,6 @@ header ul {
     justify-content: space-between;
 }
 
-header ul span {
-    display: inline-block;
-    font-size: 32px;
-    padding: 10px;
-    font-weight: 700;
-}
-
 header ul li {
     display: inline-block;
 }
@@ -254,6 +247,10 @@ nav .close {
         height: 100%;
         background-color: rgba(0, 0, 0, .75);
         z-index: 999;
+    }
+
+    .visible {
+        display: flex;
     }
 
     nav .close {
