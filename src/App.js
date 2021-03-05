@@ -4,6 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Header from "./components/Header";
+import Nav from './components/Nav';
 import Card from './components/Card';
 import Loader from './components/Loader';
 
@@ -15,7 +16,7 @@ export default class App extends Component {
         characters: [],
         loading: true,
         page: 1,
-        navOpen: true
+        isNavOpen: true
     }
 
     fetchCharacters = async (page) => {
@@ -33,7 +34,7 @@ export default class App extends Component {
     }
 
     openNav = () => {
-        this.setState({ navOpen: !this.state.navOpen })
+        this.setState({ isNavOpen: !this.state.isNavOpen })
     }
 
     componentDidMount() {
@@ -43,7 +44,8 @@ export default class App extends Component {
     render() {
         return(
             <>
-                <Header nav={this.state.navOpen} setNav={this.openNav} />
+                <Header />
+                <Nav nav={this.state.isNavOpen} setNav={this.openNav} />
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
