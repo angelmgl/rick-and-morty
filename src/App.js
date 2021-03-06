@@ -14,7 +14,7 @@ export default class App extends Component {
     state = {
         characters: [],
         loading: true,
-        page: 34,
+        page: 1,
         hasMore: true
     }
 
