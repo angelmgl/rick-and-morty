@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap');
 
 :root {
-    --primary-color: #5b78c7;
+    --primary-color: #99EDE0;
+    --secondary-color: #66CACF;
+    --text-color: #1B244D;
     font-family: 'Gaegu', cursive;
 }
 
@@ -31,7 +33,7 @@ nav {
     height: 100%;
 }
 
-nav .hamburger {
+nav .meeseks {
     display: none;
 }
 
@@ -52,9 +54,13 @@ nav .nav-links {
     padding: 10px 25px;
 }
 
+.nav-links li:hover {
+    background-color: var(--secondary-color);
+}
+
 .nav-links li a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     font-size: 2em;
 }
 
@@ -224,7 +230,7 @@ nav .nav-links {
         margin: 0;
     }
 
-    nav .hamburger {
+    nav .meeseks {
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -240,9 +246,13 @@ nav .nav-links {
         z-index: 999;
     }
 
-    .hamburger:nth-child(1) {
+    nav .meeseks:hover {
+        background-color: var(--secondary-color);
+    }
+
+    .meeseks:nth-child(1) {
         font-size: 2em;
-        color: white;
+        color: var(--text-color);
     }
 
     nav .nav-links {
