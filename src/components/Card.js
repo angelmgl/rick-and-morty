@@ -9,7 +9,7 @@ const Card = ({ id, name, image, status, specie, gender }) => {
                 <img src={image} alt={name} />
             </div>
             <div className="card-body">
-                <h2>{name}</h2>
+                <h2 style={{ fontSize: name.length < 28 ? '2em':'1.5em' }}>{name}</h2>
                 <p>Specie: {specie}</p>
                 <p>Gender: {gender}</p>
             </div>
