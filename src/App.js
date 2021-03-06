@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Header from './components/Header';
 import Card from './components/Card';
 import Loader from './components/Loader';
+import Finished from './components/Finished';
 
 import './style.css';
 import './normalize.css';
@@ -13,18 +14,23 @@ export default class App extends Component {
     state = {
         characters: [],
         loading: true,
-        page: 1
+        page: 1,
+        hasMore: true
     }
 
     fetchCharacters = async (page) => {
         try {
-            const chars = await getCharacter({ page });
-            this.setState({
-                ...this.state,
-                loading: false,
-                characters: [].concat(this.state.characters, chars.results),
-                page: this.state.page + 1
-            });
+            if(page < 35) {
+                const chars = await getCharacter({ page });
+                this.setState({
+                    ...this.state,
+                    loading: false,
+                    characters: [].concat(this.state.characters, chars.results),
+                    page: this.state.page + 1
+                });
+            } else {
+                this.setState({ hasMore: false });
+            }
         } catch (error) {
             console.log(error);
         }
@@ -42,8 +48,9 @@ export default class App extends Component {
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
-                    hasMore={true} 
-                    loader={<Loader />} >
+                    hasMore={this.state.hasMore}
+                    loader={<Loader />}
+                    endMessage={<Finished />} >
                 {
                     <section className="container">
                         { this.state.characters.map(char => {
