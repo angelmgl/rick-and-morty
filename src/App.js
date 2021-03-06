@@ -38,6 +38,7 @@ export default class App extends Component {
         return(
             <>
                 <Header />
+                <div className="info"><strong>Status:</strong> <span></span> Alive <span></span> Dead <span></span> unknown</div>
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
@@ -48,6 +49,7 @@ export default class App extends Component {
                         { this.state.characters.map(char => {
                             return <Card 
                                 key={char.id}
+                                id={char.id}
                                 name={char.name}
                                 image={char.image}
                                 status={char.status}

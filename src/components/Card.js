@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Card = ({ name, image, status, specie, gender }) => {
+const Card = ({ id, name, image, status, specie, gender }) => {
     return(
         <div className="card">
             <div className="card-header">
-                <div className="status" style={{ backgroundColor: status === "Alive" ? "#0f0" : "#f00"}} />
+                <div className="status" style={{ backgroundColor: status === "Alive" ? "#0f0" : (status === "Dead") ? '#f00' : '#ccc' }} />
+                <div className="id">{id}</div>
                 <img src={image} alt={name} />
             </div>
             <div className="card-body">
