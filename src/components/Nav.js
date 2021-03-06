@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaGithub } from 'react-icons/fa';
 
 const Nav = () => {
     const [ nav, setNav ] = useState(false);
@@ -31,10 +31,10 @@ const Nav = () => {
             <ul className={`nav-links ${nav ? 'active' : ''}`} >
             
                 <li className={`${nav ? 'open' : ''}`}>
-                    <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer">Github</a>
+                    <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer"><FaGithub /></a>
                 </li>
                 <li className={`${nav ? 'open' : ''}`}>
-                    <a href="https://twitter.com/angelmgljpr/" target="_blank" rel="noreferrer">See more</a>
+                    <a href="https://twitter.com/angelmgljpr/" target="_blank" rel="noreferrer">Angel Mgl</a>
                 </li>
             
             </ul>

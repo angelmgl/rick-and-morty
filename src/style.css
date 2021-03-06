@@ -52,6 +52,7 @@ nav .nav-links {
 
 .nav-links li {
     padding: 10px 25px;
+    transition: all 0.4s;
 }
 
 .nav-links li:hover {
@@ -318,7 +319,7 @@ nav .nav-links {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: all 1s ease-out;
+        transition: all .5s ease-out;
         z-index: 500;
         clip-path: circle(0px at 85% 92%);
         -webkit-clip-path: circle(0px at 85% 92%);
@@ -336,11 +337,11 @@ nav .nav-links {
     }
 
     nav .nav-links li:nth-child(1) {
-        transition: all 0.5s ease 0.6s;
+        transition: all 0.4s ease 0.4s;
     }
     
     nav .nav-links li:nth-child(2) {
-        transition: all 0.5s ease 0.4s;
+        transition: all 0.4s ease 0.2s;
     }
 
     nav .nav-links li.open {
