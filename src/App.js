@@ -1,72 +1,30 @@
-import React, { Component } from 'react';
-import { getCharacter } from 'rickmortyapi';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
-import Card from './components/Card';
-import Loader from './components/Loader';
-import Finished from './components/Finished';
+
+import AllCharacters from './pages/AllCharacters';
+import Character from './pages/Characters';
 
 import './style.css';
 import './normalize.css';
 
-export default class App extends Component {
-    state = {
-        characters: [],
-        loading: true,
-        page: 1,
-        hasMore: true
-    }
+const App = () => (
+    <>
+        <Header />
+        
+        <Router>
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/characters" exact component={AllCharacters} />
+                <Route path="/characters/:id" component={Character} />
+            </Switch>
+        </Router>
+    </>
+);
 
-    fetchCharacters = async (page) => {
-        try {
-            if(page < 35) {
-                const chars = await getCharacter({ page });
-                this.setState({
-                    ...this.state,
-                    loading: false,
-                    characters: [].concat(this.state.characters, chars.results),
-                    page: this.state.page + 1
-                });
-            } else {
-                this.setState({ hasMore: false });
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
+const Home = (props) => (
+    <div>Home</div>
+);
 
-    componentDidMount() {
-        this.fetchCharacters(this.state.page);
-    }
-
-    render() {
-        return(
-            <>
-                <Header />
-                <div className="info"><strong>Status:</strong> <span></span> Alive <span></span> Dead <span></span> unknown</div>
-                <InfiniteScroll
-                    dataLength={this.state.characters.length}
-                    next={() => this.fetchCharacters(this.state.page)}
-                    hasMore={this.state.hasMore}
-                    loader={<Loader />}
-                    endMessage={<Finished />} >
-                {
-                    <section className="container">
-                        { this.state.characters.map(char => {
-                            return <Card 
-                                key={char.id}
-                                id={char.id}
-                                name={char.name}
-                                image={char.image}
-                                status={char.status}
-                                specie={char.species}
-                                gender={char.gender} />
-                        })}
-                    </section>
-                } 
-                </InfiniteScroll>
-            </>
-        );
-    }
-};
+export default App;
