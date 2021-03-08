@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
     const [ nav, setNav ] = useState(false);
@@ -34,7 +35,7 @@ const Nav = () => {
                     <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer"><FaGithub /></a>
                 </li>
                 <li className={`${nav ? 'open' : ''}`}>
-                    <a href="https://twitter.com/angelmgljpr/" target="_blank" rel="noreferrer">Angel Mgl</a>
+                    <Link to="/characters">Characters</Link>
                 </li>
             
             </ul>

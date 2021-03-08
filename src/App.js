@@ -10,10 +10,9 @@ import './style.css';
 import './normalize.css';
 
 const App = () => (
-    <>
-        <Header />
-        
+    <>  
         <Router>
+            <Header />
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/characters" exact component={AllCharacters} />
