@@ -22,7 +22,7 @@ header {
 
 header > div {
     width: 100%;
-    max-width: 900px;
+    max-width: 920px;
     height: 100%;
     margin: auto;
     display: flex;
@@ -328,6 +328,51 @@ footer p {
     color: #5f7faf;
 }
 
+/* Character component styles */
+
+.character {
+    width: 100%;
+    max-width: 920px;
+    position: relative;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: 'title title' 'figure mytable';
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.character h2 {
+    grid-area: title;
+    text-align: center;
+    font-size: 2em;
+}
+
+.character figure {
+    grid-area: figure;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.character table {
+    grid-area: mytable;
+    max-width: 100%;
+    font-size: 1.2em;
+    border: 1px solid var(--secondary-color);
+    border-collapse: collapse;
+}
+
+.character table tbody tr:nth-child(even) {
+    background-color: var(--primary-color);
+}
+
+th, td {
+    padding: 5px 15px;
+}
+
 @media only screen and (max-width: 920px) {
     .container {
         grid-template-columns: 1fr 1fr;
@@ -338,6 +383,12 @@ footer p {
         grid-template-rows: auto;
         grid-template-areas: 'texto texto'
                             'img social';
+    }
+
+    .character {
+        grid-template-areas: 'title title'
+                            'figure figure'
+                            'mytable mytable'
     }
 }
 
