@@ -5,6 +5,7 @@ import Header from './components/Header';
 
 import AllCharacters from './pages/AllCharacters';
 import Character from './pages/Characters';
+import Home from './pages/Home';
 
 import './style.css';
 import './normalize.css';
@@ -20,10 +21,6 @@ const App = () => (
             </Switch>
         </Router>
     </>
-);
-
-const Home = (props) => (
-    <div>Home</div>
 );
 
 export default App;
