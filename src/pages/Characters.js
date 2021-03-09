@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getCharacter } from 'rickmortyapi';
 
 export default class Character extends Component {
@@ -7,7 +8,9 @@ export default class Character extends Component {
             episode: [],
             location: { name: '' },
             origin: { name: '' }
-        }
+        },
+        prev: +this.props.match.params.id - 1,
+        next: +this.props.match.params.id + 1
     }
 
     componentDidMount() {
@@ -60,6 +63,23 @@ export default class Character extends Component {
                         </tr>
                     </tbody>
                 </table>
+
+                {
+                    this.state.prev === 0 ?
+                    <button className="nav-btn" disabled>Previous</button> :
+                    <Link to={`/characters/${this.state.prev}`}>
+                        <button className="nav-btn">Previous</button>
+                    </Link>
+                }
+
+                {  
+                    this.state.next === 672 ?
+                    <button className="nav-btn" disabled>Next</button> :
+                    <Link to={`/characters/${this.state.next}`}>
+                        <button className="nav-btn">Next</button>
+                    </Link>
+                }
+
             </div>
         )
     }

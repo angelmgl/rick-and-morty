@@ -34,7 +34,7 @@ const Nav = () => {
                 <li className={`${nav ? 'open' : ''}`}>
                     <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer"><FaGithub /></a>
                 </li>
-                <li className={`${nav ? 'open' : ''}`}>
+                <li className={`${nav ? 'open' : ''}`} onClick={() => setNav(!nav)}>
                     <Link to="/characters">Characters</Link>
                 </li>
             

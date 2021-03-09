@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ id, name, image, status, specie, gender }) => {
     return(
-        <Link to={`/characters/${id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+        <Link to={`/characters/${id}`} style={{textDecoration: 'none', color: '#000'}}>
             <div className="card">
                 <div className="card-header">
                     <div className="status" style={{ backgroundColor: status === "Alive" ? "#0f0" : (status === "Dead") ? '#f00' : '#ccc' }} />
