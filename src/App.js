@@ -15,8 +15,8 @@ const App = () => (
         <Router>
             <Header />
             <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/characters" exact component={AllCharacters} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/characters" component={AllCharacters} />
                 <Route path="/characters/:id" render={(props) => <Character {...props} key={Date.now()} />} />
             </Switch>
         </Router>

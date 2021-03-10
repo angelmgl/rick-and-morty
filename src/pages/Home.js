@@ -1,11 +1,15 @@
 import React from 'react';
+
 import Background from '../components/Background';
+import Cluster from '../components/Cluster';
 
 const Home = (props) => (
     <>
         <Background />
-        <section className="container">
-            <h1>Welcome to the </h1>
+        <section className="home">
+            <h1>Welcome to the Rick and Morty World!</h1>
+            <h2>What are you looking for?</h2>
+            <Cluster />
         </section>
     </>
 )

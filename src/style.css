@@ -102,6 +102,75 @@ nav .nav-links {
     background-color: #ccc;
 }
 
+/* Estilos del componente HOME */
+
+.home {
+    width: 100%;
+    max-width: 920px;
+    padding: 20px;
+    background-color: rgba(255,255,255,.8);
+    height: auto;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 3em;
+}
+
+.home .options {
+    width: 100%;
+    min-height: 320px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.option {
+    width: 50%;
+    max-width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.option:hover {
+    transform: scale(1.1);
+    border: 5px solid var(--secondary-color);
+}
+
+.option:first-child {
+    background: url(img/happy-rick.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.option:last-child {
+    background: url(img/serious-rick.png);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.option p {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: rgba(0,0,0,0.8);
+    color: #f0f0f0;
+    position: absolute;
+    bottom: 0;
+}
+
 /* estilos del componente Card */
 
 .container {
@@ -385,6 +454,7 @@ th, td {
     border-radius: 10px;
     outline: none;
     background-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .nav-btn:hover {
@@ -554,6 +624,20 @@ th, td {
 @media only screen and (max-width: 650px) {
     .container {
         grid-template-columns: 1fr;
+    }
+
+    .home h1 {
+        font-size: 2em;
+    }
+
+    .home .options {
+        flex-direction: column;
+    }
+
+    .option {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 25px;
     }
 
     .lds-grid {
