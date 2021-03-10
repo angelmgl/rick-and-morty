@@ -37,6 +37,11 @@ const Nav = () => {
                 <li className={`${nav ? 'open' : ''}`} onClick={() => setNav(!nav)}>
                     <Link to="/rick-and-morty/characters">Characters</Link>
                 </li>
+                <li className={`${nav ? 'open' : ''}`} onClick={() => setNav(!nav)}>
+                    <Link to={`/rick-and-morty/characters/${Math.floor((Math.random() * 672) + 1)}`}>
+                        Random
+                    </Link>
+                </li>
             
             </ul>
         </nav>
