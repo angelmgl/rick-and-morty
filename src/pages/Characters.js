@@ -67,7 +67,7 @@ export default class Character extends Component {
                 {
                     this.state.prev === 0 ?
                     <button className="nav-btn" disabled>Previous</button> :
-                    <Link to={`/characters/${this.state.prev}`}>
+                    <Link to={`/rick-and-morty/characters/${this.state.prev}`}>
                         <button className="nav-btn">Previous</button>
                     </Link>
                 }
@@ -75,7 +75,7 @@ export default class Character extends Component {
                 {  
                     this.state.next === 672 ?
                     <button className="nav-btn" disabled>Next</button> :
-                    <Link to={`/characters/${this.state.next}`}>
+                    <Link to={`/rick-and-morty/characters/${this.state.next}`}>
                         <button className="nav-btn">Next</button>
                     </Link>
                 }

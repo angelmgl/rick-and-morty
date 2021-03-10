@@ -15,9 +15,9 @@ const App = () => (
         <Router>
             <Header />
             <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/characters" component={AllCharacters} />
-                <Route path="/characters/:id" render={(props) => <Character {...props} key={Date.now()} />} />
+                <Route exact path="/rick-and-morty" component={Home} />
+                <Route exact path="/rick-and-morty/characters" component={AllCharacters} />
+                <Route path="/rick-and-morty/characters/:id" render={(props) => <Character {...props} key={Date.now()} />} />
             </Switch>
         </Router>
     </>

@@ -8,7 +8,7 @@ const Header = (props) => {
     return(
         <header>
             <div>
-                <Link to="/">
+                <Link to="/rick-and-morty">
                     <img className="logo" src={RM} alt="Rick and Morty" />
                 </Link>
                 <Nav />

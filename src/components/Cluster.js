@@ -25,9 +25,9 @@ export default class Cluster extends Component {
                     </div>
                 </div>
 
-                <Link to="/characters" id="clickToAll"
+                <Link to="/rick-and-morty/characters" id="clickToAll"
                 style={{ display: 'none' }}>all</Link>
-                <Link to={`/characters/${this.random()}`} id="clickToRandom"
+                <Link to={`/rick-and-morty/characters/${this.random()}`} id="clickToRandom"
                 style={{ display: 'none' }}>random</Link>
             </>
         )
