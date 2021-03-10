@@ -40,7 +40,6 @@ export default class AllCharacters extends Component {
         return(
             <>
                 <div className="info"><strong>Status:</strong> <span></span> Alive <span></span> Dead <span></span> unknown</div>
-                    
                 <InfiniteScroll
                     dataLength={this.state.characters.length}
                     next={() => this.fetchCharacters(this.state.page)}
