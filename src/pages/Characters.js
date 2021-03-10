@@ -18,9 +18,13 @@ export default class Character extends Component {
     }
 
     fetchCharacter = async (id) => {
-        const char = await getCharacter(id);
-        await this.setState({ character: char });
-        console.log(this.state.character);
+        try {
+            const char = await getCharacter(id);
+            await this.setState({ character: char });
+            //console.log(this.state.character);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     render() {

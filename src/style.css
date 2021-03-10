@@ -175,6 +175,95 @@ nav .nav-links {
     bottom: 0;
 }
 
+/* estilos para el Form de búsqueda */
+
+.search-form {
+    position: relative;
+}
+
+.search-form label {
+    display: block;
+    font-size: 1.2em;
+}
+
+.search-form input#search {
+    width: 350px;
+    margin: 5px 5px;
+    padding: 5px 15px;
+    font-size: 1.2em;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    border: 1px solid #000;
+    border-radius: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color:var(--secondary-color);
+}
+
+.results {
+    margin: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.results .error {
+    font-size: 1.2em;
+    background-color: #f0f0f0;
+    padding: 5px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255,0,0,.8);
+}
+
+.thumbnail {
+    height: 40px;
+    width: 350px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #cfcfcf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail:hover {
+    background-color: #c0c0c0;
+}
+
+.results a:first-child .thumbnail {
+    border-radius: 10px 10px 0 0;
+}
+
+.results a:last-child .thumbnail {
+    border-radius: 0 0 10px 10px;
+}
+
+.thumbnail img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.thumbnail p {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
 /* estilos del componente Card */
 
 .container {
@@ -688,5 +777,13 @@ th, td {
 
     nav .nav-links li.open {
         opacity: 1;
+    }
+
+    .search-form input#search {
+        width: 250px;
+    }
+
+    .thumbnail {
+        width: 250px;
     }
 }
