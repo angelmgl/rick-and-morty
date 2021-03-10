@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import Background from './components/Background';
+import Footer from './components/Footer';
 
 import AllCharacters from './pages/AllCharacters';
 import Character from './pages/Characters';
@@ -21,6 +22,7 @@ const App = () => (
                 <Route exact path="/rick-and-morty/characters" component={AllCharacters} />
                 <Route path="/rick-and-morty/characters/:id" render={(props) => <Character {...props} key={Date.now()} />} />
             </Switch>
+            <Footer />
         </Router>
     </>
 );

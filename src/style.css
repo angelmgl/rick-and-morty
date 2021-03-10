@@ -70,6 +70,10 @@ nav .nav-links {
     font-size: 2em;
 }
 
+#home {
+    display: none;
+}
+
 .info {
     width: 100%;
     position: sticky;
@@ -341,50 +345,12 @@ footer {
     box-sizing: border-box;
 }
 
-footer .finished {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 300px 1fr 100px;
-    grid-template-areas: 'img texto social';
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-}
-
-footer .finished div:nth-child(1) {
-    grid-area: texto;
-}
-
-footer .finished div:nth-child(2) {
-    grid-area: social;
-} 
-
-footer .finished div:nth-child(3) {
-    grid-area: img;
-}
-
-footer p {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 1.5em;
-}
-
-.finished div p {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
 .social {
-    width: 70px;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 15px;
-    justify-items: center;
-    align-items: center;
+    width: 100%;
+    max-width: 920px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .social a .icons {
@@ -395,7 +361,13 @@ footer p {
 
 .social a .icons:hover {
     transform: scale(1.2);
-    color: #5f7faf;
+    color: #3c4046;
+}
+
+footer p {
+    margin: 20px 0 0;
+    font-size: 1.5em;
+    text-align: center;
 }
 
 /* Character component styles */
@@ -609,13 +581,6 @@ th, td {
         grid-template-columns: 1fr 1fr;
     }
 
-    footer .finished {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: 'texto texto'
-                            'img social';
-    }
-
     .character {
         grid-template-areas: 'title title'
                             'figure figure'
@@ -705,6 +670,10 @@ th, td {
         pointer-events: all;
     }
 
+    #home {
+        display: block;
+    }
+
     nav .nav-links li {
         opacity: 0;
     }
@@ -719,12 +688,5 @@ th, td {
 
     nav .nav-links li.open {
         opacity: 1;
-    }
-
-    footer .finished {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: 'texto' 'social' 'img';
-        gap: 20px;
     }
 }

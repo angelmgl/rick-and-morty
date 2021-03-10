@@ -4,7 +4,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Card from '../components/Card';
 import Loader from '../components/Loader';
-import Finished from '../components/Finished';
 
 export default class AllCharacters extends Component {
     state = {
@@ -45,7 +44,10 @@ export default class AllCharacters extends Component {
                     next={() => this.fetchCharacters(this.state.page)}
                     hasMore={this.state.hasMore}
                     loader={<Loader />}
-                    endMessage={<Finished />} >
+                    endMessage={<h2 style={{ textAlign: 'center', backgroundColor: 'rgba(255,255,255,0.8)',
+                                margin: '0', padding: '5px' }}>
+                                    You have reached the end!
+                                </h2>} >
                 {
                     <section className="container">
                         { this.state.characters.map(char => {

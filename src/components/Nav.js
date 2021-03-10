@@ -30,9 +30,9 @@ const Nav = () => {
                 }
             </div>
             <ul className={`nav-links ${nav ? 'active' : ''}`} >
-            
-                <li className={`${nav ? 'open' : ''}`}>
-                    <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer"><FaGithub /></a>
+
+                <li className={`${nav ? 'open' : ''}`} id="home" onClick={() => setNav(!nav)}>
+                    <Link to="/rick-and-morty">Home</Link>
                 </li>
                 <li className={`${nav ? 'open' : ''}`} onClick={() => setNav(!nav)}>
                     <Link to="/rick-and-morty/characters">Characters</Link>
@@ -41,6 +41,9 @@ const Nav = () => {
                     <Link to={`/rick-and-morty/characters/${Math.floor((Math.random() * 672) + 1)}`}>
                         Random
                     </Link>
+                </li>
+                <li className={`${nav ? 'open' : ''}`}>
+                    <a href="https://github.com/angelmgl/rick-and-morty/" target="_blank" rel="noreferrer"><FaGithub /></a>
                 </li>
             
             </ul>
