@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { getCharacter } from 'rickmortyapi';
+import { Redirect } from 'react-router-dom';
 
 import Thumbnail from './Thumbnail';
 
@@ -8,7 +9,8 @@ export default class Search extends Component {
     state = {
         keyword: '',
         results: [],
-        error: ''
+        error: '',
+        redirect: false
     }
 
     fetchResults = async (keyword) => {
@@ -35,14 +37,17 @@ export default class Search extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
-        const url = this.state.results.length > 0 ?
-            this.state.results[0].id : null
 
-        if(url) window.location.href = `/rick-and-morty/characters/${url}`;
+        this.setState({ redirect: true });
     }
 
     render() {
+        if (this.state.redirect) {
+            const url = this.state.results.length > 0 ?
+            this.state.results[0].id : null
+            return <Redirect to={`/rick-and-morty/characters/${url}`} />
+        }
+
         return(
             <form className="search-form" onSubmit={this.handleSubmit}>
                 <label htmlFor="search">Search a character by name:</label>
